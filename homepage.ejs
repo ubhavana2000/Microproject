@@ -90,8 +90,25 @@
                                             <td><%= data[i].category%></td>
                                             <td><%= data[i].type%></td>
                                             <td><%= data[i].size%></td>
-                                            <td><%= data[i].quantity%></td>
+                                            <td>
+                                            <% if(data[i].quantity<30){%>
+                                                <div class="progress progress-xs">
+                                                <div class="progress-bar bg-danger" style="width:<%=data[i].quantity%>"></div>
+                                                </div>
+                                                <small><%= data[i].quantity %></small>
+                                                <%}%>
+                                            <% if(data[i].quantity>=30){%>
+                                                <div class="progress progress-xs">
+                                                <div class="progress-bar bg-info" style="width:<%=data[i].quantity%>"></div>
+                                                </div>
+                                                <small><%= data[i].quantity %></small>
+                                                <%}%>
+                                            </td>
                                             <td><%= data[i].sp%></td>
+                                            <td class="project-actions text-right">
+                                                <a class="btn btn-info btn-sm" href="/update"><i class="fas fa-pencil-alt"></i>Edit</a>
+                                                <a class="btn btn-danger btn-sm" href="/delete" ><i class="fas fa-trash"></i>Delete</a>
+                                            </td>
                                         </tr>
                                         <%}%>
                                 </tbody>
